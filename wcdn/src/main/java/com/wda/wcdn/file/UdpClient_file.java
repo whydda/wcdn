@@ -6,6 +6,8 @@ import java.io.*;
 import java.net.*;
 
 public class UdpClient_file {
+	private static final String DEF_PATH = "D:/data/image";
+	private static final String key = "key1";
 	DatagramSocket dsock;
 	DatagramPacket sPack, rPack;
 	InetAddress server;
@@ -13,13 +15,13 @@ public class UdpClient_file {
 	String srcPath, destPath;
 	FileEvent event;
 
-	public UdpClient_file(String ip, int port, String srcPath, String destPath) {
+	public UdpClient_file(String ip, int port, String srcPath) {
 		try{
 			server = InetAddress.getByName(ip);
 			this.port = port;
 			this.dsock = new DatagramSocket();
 			this.srcPath = srcPath;
-			this.destPath = destPath;
+			this.destPath = DEF_PATH + File.separator + key;
 
 			System.out.println("connecting to server...");
 		} catch(Exception e) {
@@ -107,9 +109,8 @@ public class UdpClient_file {
 	}
 
 	public static void main(String[] args) {
-		UdpClient_file client = new UdpClient_file("127.0.0.1", 9999, "D:/data/image/sign.jpg", "D:/data/destimage/");
+		UdpClient_file client = new UdpClient_file("127.0.0.1", 9999, "D:/data/image/sign.jpg");
 		client.createConnection();
-		client = new UdpClient_file("127.0.0.1", 9999, "D:/data/image/sign.jpg", "D:/data/destimage2/");
-		client.createConnection();
+		client = new UdpClient_file("127.0.0.1", 9999, "D:/data/image/sign.jpg");
 	}
 }

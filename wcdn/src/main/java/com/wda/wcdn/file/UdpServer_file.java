@@ -9,6 +9,8 @@ import java.net.InetAddress;
 import java.net.SocketException;
 
 public class UdpServer_file {
+	private static int FileCount = 0;
+
 	DatagramSocket dsock;
 	DatagramPacket sPack, rPack;
 	InetAddress client;
@@ -60,7 +62,7 @@ public class UdpServer_file {
 				sPack = new DatagramPacket(strOutByte, strOutByte.length, client, cport);
 				dsock.send(sPack);
 				Thread.sleep(3000);
-				System.out.println("UDP 서버를 종료합니다.");
+//				System.out.println("UDP 서버를 종료합니다.");
 //				System.exit(0);
 			}
 		} catch (SocketException e) {
@@ -75,7 +77,7 @@ public class UdpServer_file {
 	}
 
 	public void createAndWriteFile() {
-		String outputFile = fileEvent.getDestDir() + fileEvent.getFilename();
+		String outputFile = fileEvent.getDestDir() + (FileCount++) + fileEvent.getFilename();
 		if (!new File(fileEvent.getDestDir()).exists()) {
 			new File(fileEvent.getDestDir()).mkdirs();
 		}

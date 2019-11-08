@@ -1,12 +1,11 @@
 package com.wda.wcdnweb.file;
 import com.wda.wcdn.core.FileEvent;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.net.*;
 
-@Slf4j
 @Component
 public class UdpFileClient {
 	private static final String DEF_PATH = "D:/data/image";
@@ -27,7 +26,7 @@ public class UdpFileClient {
 	}
 
 	public UdpFileClient() {
-			log.info("connecting to server...");
+			System.out.println("connecting to server...");
 	}
 
 	public void sendFile(){
@@ -47,10 +46,10 @@ public class UdpFileClient {
 			dsock.send(sPack);
 			rPack = new DatagramPacket(inputData, inputData.length);
 			dsock.receive(rPack);
-			log.info(new String(rPack.getData()));
+			System.out.println(new String(rPack.getData()));
 
 //			Thread.sleep(2000);
-//			log.info("UDP client를 종료합니다.");
+//			System.out.println("UDP client를 종료합니다.");
 //			System.exit(0);
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
@@ -94,9 +93,9 @@ public class UdpFileClient {
 				fileEvent.setStatus("Error");
 			}
 		} else {
-			log.info("path is not pointing to a file");
+			System.out.println("path is not pointing to a file");
 			fileEvent.setStatus("Error");
-			log.info("UDP client를 종료합니다.");
+			System.out.println("UDP client를 종료합니다.");
 			System.exit(0);
 		}
 		return fileEvent;

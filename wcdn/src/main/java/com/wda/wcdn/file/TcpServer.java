@@ -115,7 +115,7 @@ public class TcpServer {
 	}
 
 	public static void main(String[] args) {
-		TcpServer server = new TcpServer(8000);
+		TcpServer server = new TcpServer(8888);
 		server.waitForClient();
 		server.receiveFile();
 		server.send("파일을 잘 받았습니다!");

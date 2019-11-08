@@ -109,8 +109,7 @@ public class UdpClient_file {
 	}
 
 	public static void main(String[] args) {
-		UdpClient_file client = new UdpClient_file("127.0.0.1", 9999, "D:/data/image/sign.jpg");
+		UdpClient_file client = new UdpClient_file("127.0.0.1", 9999, "D:/data/image/jion_love.jpg");
 		client.createConnection();
-		client = new UdpClient_file("127.0.0.1", 9999, "D:/data/image/sign.jpg");
 	}
 }

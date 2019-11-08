@@ -32,7 +32,7 @@ public class FileController {
 
     @GetMapping("/file/upload")
     public String FileUploadService() throws SocketException, UnknownHostException {
-        udpFileClient.setServerInfo("127.0.0.1", 9999, "D:/data/image/sign.jpg");
+        udpFileClient.setServerInfo("127.0.0.1", 9999, "D:/data/image/aaa.text");
         udpFileClient.sendFile(); //파일전송
         return "/index";
     }

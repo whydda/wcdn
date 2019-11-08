@@ -125,7 +125,7 @@ public class TcpClient {
 
 	public static void main(String[] args) {
 		//서버 주소와 포트번호를 지정하여 서버에 접속
-		TcpClient client = new TcpClient("127.0.0.1", 8000, "C:/prac/a.txt", "C:/prac/test/");
+		TcpClient client = new TcpClient("127.0.0.1", 8888, "D:/data/image/jion_love.jpg", "D:/data/");
 		client.sendFile();
 		client.receive();
 		client.close();
